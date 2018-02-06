@@ -15,7 +15,7 @@ class Nav extends Component {
                 Clicky Game!
               </a>
               <h4 className="nav navbar-text navbar-center">Click an image to begin!</h4> 
-              <h4 className="nav navbar-text navbar-right">Score: {this.props.score} | Top Score: 0</h4> 
+              <h4 className="nav navbar-text navbar-right">Score: {this.props.score} | Top Score: {this.props.hiScore}</h4> 
             </div>
           </div>
         </nav>
