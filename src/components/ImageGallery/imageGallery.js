@@ -18,7 +18,8 @@ class imageGallery extends Component {
       this.props.src9
     ],
     imageObj: this.props.images,
-    score: 0
+    score: 0,
+    hiScore: 0
   };
 
   shuffle = array => {
@@ -51,12 +52,35 @@ class imageGallery extends Component {
 
   incrementScore() {
     let newScore = this.state.score + 25;
+    if (newScore > this.state.hiScore) {
+      this.setState({hiScore:newScore});
+    }
     this.setState({score: newScore});
     this.shuffleImages();
   }
 
+  resetGame() {
+    this.state.imageObj.forEach(image => {
+      let imageObjCopy = this.state.imageObj;
+      imageObjCopy[imageObjCopy.indexOf(image)].clicked = false;
+      this.setState({imageObj:imageObjCopy});
+    });
+    this.setState({score: 0});
+    this.shuffleImages();
+    return;
+  }
+
   decrementScore() {
     let newScore = this.state.score - 7;
+    if (newScore < 0 ) {
+      newScore += 7;
+      alert("Game Over!!")
+      if (newScore > this.state.hiScore) {
+        this.setState({hiScore:newScore});
+      }
+      this.resetGame();
+      return;
+    }
     this.setState({score: newScore});
     this.shuffleImages();
   }
@@ -64,6 +88,7 @@ class imageGallery extends Component {
   handleClick = src => {
     console.log(src);
     let imageObjCopy = this.state.imageObj;
+    let clickCount = 0;
     this.state.imageObj.forEach(image => {
       if (image.src === src) {
         if (image.clicked === false) {
@@ -79,13 +104,22 @@ class imageGallery extends Component {
           this.decrementScore();
         }
       }
+      // win condition
+      if (image.clicked === true) {
+        clickCount++;
+        if (clickCount === 9) {
+          alert("You win!!")
+          this.resetGame();
+          return;
+        }
+      }
     });
   }
 
   render() {
     return(
     <div>
-    <Nav score={this.state.score}></Nav>
+    <Nav score={this.state.score} hiScore={this.state.hiScore}></Nav>
     <Jumbotron/>
     <div className='container'>
       <div className='row'>
