@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Nav from './components/Nav'
-import Jumbotron from './components/Jumbotron'
 import ImageGallery from './components/ImageGallery'
 import images from "./images.json";
 
@@ -13,8 +11,6 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Nav></Nav>
-        <Jumbotron/>
         <ImageGallery
           src1="https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_13-256.png"
           src2="https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_14-256.png"

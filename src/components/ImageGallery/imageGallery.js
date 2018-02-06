@@ -1,3 +1,5 @@
+import Nav from '../Nav'
+import Jumbotron from '../Jumbotron'
 import React, { Component } from "react";
 
 class imageGallery extends Component {
@@ -46,16 +48,37 @@ class imageGallery extends Component {
     this.setState({images:shuffledImages});
   }
 
-  handleClick() {
-    console.log(true);
+  handleClick = src => {
+    console.log(src);
+    let length = this.state.imageObj.length;
+    this.state.imageObj.forEach(image => {
+      if (image.src === src) {
+        // incrementScore();
+        console.log(true);
+        // Filter this.state.imageObj for images with an src not equal to the src being removed
+        let updatedImageObj = this.state.imageObj.filter(image => image.src !== src);
+        this.setState({imageObj:updatedImageObj}, () => {
+          console.log(this.state.imageObj)
+        });
+      }
+    });
+    // // Filter this.state.imageObj for images with an src not equal to the src being removed
+    // let updatedImageObj = this.state.imageObj.filter(image => image.src !== src);
+    // this.setState({imageObj:updatedImageObj}, () => {
+    //   console.log(this.state.imageObj)
+    // });
+
   }
 
   render() {
     return(
+    <div>
+    <Nav></Nav>
+    <Jumbotron/>
     <div className='container'>
       <div className='row'>
         <div className='col-md-4'>
-          <div className='thumbnail' onClick={this.handleClick}>
+          <div className='thumbnail' onClick={() => this.handleClick(this.state.images[0])}>
             <img src={this.state.images[0] ? this.state.images[0] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
@@ -104,6 +127,7 @@ class imageGallery extends Component {
           </div>
         </div>
       </div>
+    </div>
     </div>
     )
   }
