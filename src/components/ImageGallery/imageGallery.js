@@ -5,17 +5,17 @@ const imageGallery = props => (
     <div className='row'>
       <div className='col-md-4'>
         <div className='thumbnail'>
-          <img src={props.src1 ? props.src1 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} class="img-responsive" style={{width: '40%'}}></img>
+          <img src={props.src1 ? props.src1 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" class="img-responsive" style={{width: '40%'}}></img>
         </div>
       </div>
       <div className='col-md-4'>
         <div className='thumbnail'>
-          <img src={props.src2 ? props.src2 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} class="img-responsive" style={{width: '40%'}}></img>
+          <img src={props.src2 ? props.src2 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" class="img-responsive" style={{width: '40%'}}></img>
         </div>
       </div>
       <div className='col-md-4'>
         <div className='thumbnail'>
-          <img src={props.src3 ? props.src3 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} class="img-responsive" style={{width: '40%'}}></img>
+          <img src={props.src3 ? props.src3 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'}  alt="" class="img-responsive" style={{width: '40%'}}></img>
         </div>
       </div>
     </div>
