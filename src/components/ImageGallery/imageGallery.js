@@ -17,7 +17,8 @@ class imageGallery extends Component {
       this.props.src8,
       this.props.src9
     ],
-    imageObj: this.props.images
+    imageObj: this.props.images,
+    score: 0
   };
 
   shuffle = array => {
@@ -48,12 +49,17 @@ class imageGallery extends Component {
     this.setState({images:shuffledImages});
   }
 
+  incrementScore() {
+    let newScore = this.state.score + 25;
+    this.setState({score: newScore});
+  }
+
   handleClick = src => {
     console.log(src);
     let length = this.state.imageObj.length;
     this.state.imageObj.forEach(image => {
       if (image.src === src) {
-        // incrementScore();
+        this.incrementScore();
         console.log(true);
         // Filter this.state.imageObj for images with an src not equal to the src being removed
         let updatedImageObj = this.state.imageObj.filter(image => image.src !== src);
@@ -67,13 +73,12 @@ class imageGallery extends Component {
     // this.setState({imageObj:updatedImageObj}, () => {
     //   console.log(this.state.imageObj)
     // });
-
   }
 
   render() {
     return(
     <div>
-    <Nav></Nav>
+    <Nav score={this.state.score}></Nav>
     <Jumbotron/>
     <div className='container'>
       <div className='row'>
