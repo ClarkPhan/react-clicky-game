@@ -38,8 +38,15 @@ class imageGallery extends Component {
   componentDidMount() {
     console.log(this.state.images);
     console.log(this.shuffle(this.state.images));
+    this.shuffledImages();
+    
   }
 
+  shuffledImages() {
+    var shuffledImages = this.shuffle(this.state.images);
+    this.setState({images:shuffledImages});
+
+  }
   render() {
     return(
     <div className='container'>
