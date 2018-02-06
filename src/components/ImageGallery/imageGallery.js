@@ -40,11 +40,11 @@ class imageGallery extends Component {
   }
   
   componentDidMount() {
-    this.shuffledImages();
+    this.shuffleImages();
     console.log(this.state.images);
   }
 
-  shuffledImages() {
+  shuffleImages() {
     var shuffledImages = this.shuffle(this.state.images);
     this.setState({images:shuffledImages});
   }
@@ -52,27 +52,32 @@ class imageGallery extends Component {
   incrementScore() {
     let newScore = this.state.score + 25;
     this.setState({score: newScore});
+    this.shuffleImages();
+  }
+
+  decrementScore() {
+    let newScore = this.state.score - 7;
+    this.setState({score: newScore});
+    this.shuffleImages();
   }
 
   handleClick = src => {
     console.log(src);
-    let length = this.state.imageObj.length;
+    let imageObjCopy = this.state.imageObj;
     this.state.imageObj.forEach(image => {
       if (image.src === src) {
-        this.incrementScore();
-        console.log(true);
-        // Filter this.state.imageObj for images with an src not equal to the src being removed
-        let updatedImageObj = this.state.imageObj.filter(image => image.src !== src);
-        this.setState({imageObj:updatedImageObj}, () => {
-          console.log(this.state.imageObj)
-        });
+        console.log("found");
+        if (!image.clicked) {
+          this.incrementScore();
+          let updatedObj = imageObjCopy[imageObjCopy.indexOf(image)].clicked = true;
+          this.setState({imageObj: [updatedObj]});
+          console.log(this.state.imageObj);
+        } else if (image.clicked) {
+          this.decrementScore();
+          this.setState({imageObj: [imageObjCopy]});
+        }
       }
     });
-    // // Filter this.state.imageObj for images with an src not equal to the src being removed
-    // let updatedImageObj = this.state.imageObj.filter(image => image.src !== src);
-    // this.setState({imageObj:updatedImageObj}, () => {
-    //   console.log(this.state.imageObj)
-    // });
   }
 
   render() {
@@ -88,45 +93,45 @@ class imageGallery extends Component {
           </div>
         </div>
         <div className='col-md-4'>
-          <div className='thumbnail' onClick={this.handleClick}>
+          <div className='thumbnail' onClick={() => this.handleClick(this.state.images[1])}>
             <img src={this.state.images[1] ? this.state.images[1] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
         <div className='col-md-4'>
-          <div className='thumbnail' onClick={this.handleClick}>
+          <div className='thumbnail' onClick={() => this.handleClick(this.state.images[2])}>
             <img src={this.state.images[2] ? this.state.images[2] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'}  alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
       </div>
       <div className='row'>
         <div className='col-md-4'>
-          <div className='thumbnail' onClick={this.handleClick}>
+          <div className='thumbnail' onClick={() => this.handleClick(this.state.images[3])}>
             <img src={this.state.images[3] ? this.state.images[3]: 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
         <div className='col-md-4'>
-          <div className='thumbnail' onClick={this.handleClick}>
+          <div className='thumbnail' onClick={() => this.handleClick(this.state.images[4])}>
             <img src={this.state.images[4] ? this.state.images[4] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
         <div className='col-md-4'>
-          <div className='thumbnail' onClick={this.handleClick}>
+          <div className='thumbnail' onClick={() => this.handleClick(this.state.images[5])}>
             <img src={this.state.images[5] ? this.state.images[5] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'}  alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
       </div>
       <div className='row'>
         <div className='col-md-4'>
-          <div className='thumbnail' onClick={this.handleClick}>
+          <div className='thumbnail' onClick={() => this.handleClick(this.state.images[6])}>
             <img src={this.state.images[6] ? this.state.images[6] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
-        <div className='col-md-4' onClick={this.handleClick}>
+        <div className='col-md-4' onClick={() => this.handleClick(this.state.images[7])}>
           <div className='thumbnail'>
             <img src={this.state.images[7] ? this.state.images[7] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>
         </div>
-        <div className='col-md-4' onClick={this.handleClick}> 
+        <div className='col-md-4' onClick={() => this.handleClick(this.state.images[8])}> 
           <div className='thumbnail'>
             <img src={this.state.images[8] ? this.state.images[8] : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'}  alt="" className="img-responsive" style={{width: '40%'}}></img>
           </div>

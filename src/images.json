@@ -1,38 +1,38 @@
 [
   {
-    "id": 1,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_13-256.png"
   },
   {
-    "id": 2,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_14-256.png"
   },
   {
-    "id": 3,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_4-256.png"
   },
   {
-    "id": 4,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_5-256.png"
   },
   {
-    "id": 5,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_2-256.png"
   },
   {
-    "id": 6,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_11-256.png"
   },
   {
-    "id": 7,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_9-256.png"
   },
   {
-    "id": 8,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_10-256.png"
   },
   {
-    "id": 9,
+    "clicked": false,
     "src": "https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_17-256.png"
   }
 ]
