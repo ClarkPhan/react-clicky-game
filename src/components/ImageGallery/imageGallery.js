@@ -1,24 +1,21 @@
 import React from 'react';
 
-const imageGallery = () => (
+const imageGallery = props => (
   <div className='container'>
     <div className='row'>
       <div className='col-md-4'>
         <div className='thumbnail'>
-          <a href='http://via.placeholder.com/350x150' target='_blank'><img src='http://via.placeholder.com/350x150' alt='Lights' style={{width: '100%'}}></img>
-          </a>
+          <img src={props.src1 ? props.src1 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} class="img-responsive" style={{width: '40%'}}></img>
         </div>
       </div>
       <div className='col-md-4'>
         <div className='thumbnail'>
-          <a href='http://via.placeholder.com/350x150' target='_blank'><img src='http://via.placeholder.com/350x150' alt='Nature' style={{width: '100%'}}></img>
-          </a>
+          <img src={props.src2 ? props.src2 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} class="img-responsive" style={{width: '40%'}}></img>
         </div>
       </div>
       <div className='col-md-4'>
         <div className='thumbnail'>
-          <a href='http://via.placeholder.com/350x150' target='_blank'><img src='http://via.placeholder.com/350x150' alt='Fjords' style={{width: '100%'}}></img>
-          </a>
+          <img src={props.src3 ? props.src3 : 'https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png'} class="img-responsive" style={{width: '40%'}}></img>
         </div>
       </div>
     </div>
