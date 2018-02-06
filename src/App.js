@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import Bootstrap from './components/bootstrap';
 import Nav from "./components/Nav";
+import Jumbotron from "./components/Jumbotron"
 
 class App extends Component {
   render() {
     return (
+      <div>
       <Nav></Nav>
+      <Jumbotron/>
+      </div>
     );
   }
 }
