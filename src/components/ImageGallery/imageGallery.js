@@ -66,15 +66,17 @@ class imageGallery extends Component {
     let imageObjCopy = this.state.imageObj;
     this.state.imageObj.forEach(image => {
       if (image.src === src) {
-        console.log("found");
-        if (!image.clicked) {
+        if (image.clicked === false) {
           this.incrementScore();
-          let updatedObj = imageObjCopy[imageObjCopy.indexOf(image)].clicked = true;
-          this.setState({imageObj: [updatedObj]});
+          
+          // set image to clicked
+          imageObjCopy[imageObjCopy.indexOf(image)].clicked = true;
+          
+          this.setState({imageObj: imageObjCopy});
+          
           console.log(this.state.imageObj);
-        } else if (image.clicked) {
+        } else if (image.clicked === true) {
           this.decrementScore();
-          this.setState({imageObj: [imageObjCopy]});
         }
       }
     });
