@@ -8,8 +8,8 @@ const Nav = () => (
         <a href="/" className="navbar-brand" id="brand">
           Clicky Game!
         </a>
-        <h4 class="nav navbar-text navbar-center">Click an image to begin!</h4> 
-        <h4 class="nav navbar-text navbar-right">Score: 0 | Top Score: 0</h4> 
+        <h4 className="nav navbar-text navbar-center">Click an image to begin!</h4> 
+        <h4 className="nav navbar-text navbar-right">Score: 0 | Top Score: 0</h4> 
       </div>
     </div>
   </nav>
