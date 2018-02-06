@@ -2,8 +2,14 @@ import React, { Component } from 'react'
 import Nav from './components/Nav'
 import Jumbotron from './components/Jumbotron'
 import ImageGallery from './components/ImageGallery'
+import images from "./images.json";
 
 class App extends Component {
+  // Setting this.state.friends to the friends json array
+  state = {
+    images
+  };
+  
   render () {
     return (
       <div>
@@ -19,6 +25,7 @@ class App extends Component {
           src7="https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_9-256.png"
           src8="https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_10-256.png"
           src9="https://cdn1.iconfinder.com/data/icons/photo-stickers-hats/128/hat_17-256.png"
+          images={this.state.images}
         />
       </div>
     )
